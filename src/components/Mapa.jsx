@@ -1,0 +1,42 @@
+import { MapContainer, TileLayer, useMap } from 'react-leaflet';
+import MiMarker from './MiMarker';
+import data from '../data/datos.json';
+import './Mapa.css';
+import L from 'leaflet';
+
+
+var southAmericaBounds = L.latLngBounds(
+    L.latLng(-66.0, -92.0), // suroeste (10 menos lat, 10 menos lon)
+    L.latLng(23.0, -24.0)   // noreste (10 más lat, 10 más lon)
+);
+
+export default function Mapa() {
+
+
+    return (
+        <div style={{ position: 'relative' }} className="map-container">
+
+            <MapContainer
+                center={[-8.700, -72.082]}
+                zoom={5}
+                minZoom={3}
+                maxZoom={17}
+                maxBounds={southAmericaBounds}
+                maxBoundsViscosity={1.0}
+                style={{ height: '100%', width: '100%' }}>
+                <TileLayer
+                    url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}{r}.png"
+                />
+                {data.map((item, index) => {
+                    return (
+                        <MiMarker
+                            key={index}
+                            item={item}
+                        />
+                    );
+                })}
+            </MapContainer>
+
+        </div >
+    );
+}
