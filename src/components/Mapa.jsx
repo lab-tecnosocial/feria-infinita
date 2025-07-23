@@ -1,5 +1,8 @@
-import { MapContainer, TileLayer, useMap } from 'react-leaflet';
+import { MapContainer, TileLayer, useMap, ZoomControl } from 'react-leaflet';
 import MiMarker from './MiMarker';
+import SpiralLines from './SpiralLines';
+import CitySelector from './CitySelector';
+import FormularioFeria from './FormularioFeria';
 import data from '../data/datos.json';
 import './Mapa.css';
 import L from 'leaflet';
@@ -16,6 +19,9 @@ export default function Mapa() {
     return (
         <div style={{ position: 'relative' }} className="map-container">
 
+            {/* Formulario lateral */}
+            <FormularioFeria />
+
             <MapContainer
                 center={[-8.700, -72.082]}
                 zoom={5}
@@ -23,10 +29,20 @@ export default function Mapa() {
                 maxZoom={17}
                 maxBounds={southAmericaBounds}
                 maxBoundsViscosity={1.0}
-                style={{ height: '100%', width: '100%' }}>
+                style={{ height: '100%', width: '100%' }}
+                zoomControl={false}
+            >
                 <TileLayer
                     url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}{r}.png"
                 />
+
+                {/* Spiral Lines Component */}
+                <SpiralLines />
+
+                {/* City Selector Component */}
+                <CitySelector />
+
+                {/* Original Markers */}
                 {data.map((item, index) => {
                     return (
                         <MiMarker
@@ -35,6 +51,7 @@ export default function Mapa() {
                         />
                     );
                 })}
+                <ZoomControl position="bottomright" />
             </MapContainer>
 
         </div >

@@ -98,3 +98,92 @@
     text-align: center;
     font-style: italic;
 }
+
+/* Juan Downey Color Palette */
+:root {
+    --downey-blue: #4A90E2;
+    --downey-teal: #50E3C2;
+    --downey-green: #7ED321;
+    --downey-yellow: #F5A623;
+    --downey-red: #D0021B;
+    --downey-purple: #9013FE;
+    --downey-primary: #512876;
+}
+
+/* Spiral Lines Styles */
+.spiral-arc {
+    animation: arcDraw 1.5s ease-out forwards;
+    vector-effect: non-scaling-stroke;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+@keyframes arcDraw {
+    from {
+        stroke-dasharray: 500;
+        stroke-dashoffset: 500;
+        opacity: 0;
+    }
+    to {
+        stroke-dasharray: 500;
+        stroke-dashoffset: 0;
+        opacity: 0.8;
+    }
+}
+
+/* Ensure spiral pane stays visible at all zoom levels */
+.leaflet-spiral-pane {
+    pointer-events: none !important;
+    z-index: 400 !important;
+}
+
+.leaflet-spiral-pane svg {
+    pointer-events: none !important;
+}
+
+.leaflet-spiral-pane path {
+    vector-effect: non-scaling-stroke !important;
+}
+
+/* City Selector Enhancements */
+.city-selector-container {
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(81, 40, 118, 0.2);
+}
+
+.city-selector-container:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+}
+
+/* Formulario Feria Styles */
+.formulario-feria {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.formulario-feria .MuiTextField-root {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.formulario-feria .MuiSelect-root {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+/* Custom scrollbar for form */
+.formulario-feria::-webkit-scrollbar {
+    width: 6px;
+}
+
+.formulario-feria::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.formulario-feria::-webkit-scrollbar-thumb {
+    background: rgba(81, 40, 118, 0.3);
+    border-radius: 3px;
+}
+
+.formulario-feria::-webkit-scrollbar-thumb:hover {
+    background: rgba(81, 40, 118, 0.5);
+}
