@@ -1,4 +1,6 @@
 import { CircleMarker, Popup } from 'react-leaflet';
+const base = import.meta.env.BASE_URL;
+
 
 export default function MiMarker({ item }) {
 
@@ -19,13 +21,13 @@ export default function MiMarker({ item }) {
             >
                 <Popup>
                     <img
-                        src={`/assets/img/${item.fotografia}`}
+                        src={`${base}/assets/img/${item.fotografia}`}
                         alt={`Fotografía de ${item.nombre_feria}`}
                         style={{ width: '100%', borderRadius: '8px', marginTop: '12px' }}
                     />
 
                     <div style={{ marginTop: '12px' }}>
-                        <audio controls src={`/assets/audio/${item.audio}`} style={{ width: '100%' }}>
+                        <audio controls src={`${base}/assets/audio/${item.audio}`} style={{ width: '100%' }}>
                             Tu navegador no soporta el elemento de audio.
                         </audio>
                     </div>
