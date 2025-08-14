@@ -1,5 +1,5 @@
 .map-container {
-  height: 90vh;
+  height: 100%;
   width: 100%;
 }
 
@@ -42,7 +42,8 @@
 }
 
 .footer {
-  height: 4vh;
+  height: 80px;
+  /* Altura fija para desktop */
 }
 
 .leaflet-tile {
@@ -53,7 +54,7 @@
 /* media query for mobile */
 @media only screen and (max-width: 600px) {
   .map-container {
-    height: 86vh;
+    height: 100%;
   }
 
   .header {
@@ -62,7 +63,18 @@
   }
 
   .footer {
-    height: 6vh;
+    height: 60px;
+    /* Más pequeño en mobile */
+  }
+
+  /* Ajuste para mobile del main */
+  main {
+    height: calc(100vh - 8vh - 60px) !important;
+  }
+
+  /* Logos más pequeños en mobile */
+  .footer img {
+    height: 35px !important;
   }
 }
 

@@ -17,8 +17,11 @@ export default function Mapa() {
 
 
     return (
-        <div style={{ position: 'relative' }} className="map-container">
-
+        <div style={{
+            position: 'relative',
+            height: '100%',
+            width: '100%'
+        }} className="map-container">
             {/* Formulario lateral */}
             <FormularioFeria />
 
@@ -54,6 +57,6 @@ export default function Mapa() {
                 <ZoomControl position="bottomright" />
             </MapContainer>
 
-        </div >
+        </div>
     );
 }
