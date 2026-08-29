@@ -37,7 +37,7 @@ export default function Mapa() {
                 zoomControl={false}
             >
                 <TileLayer
-                    url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}{r}.png"
+                    url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}{r}.png?key=cb1_2i09_1_c1733caff4f6b0fa830d7eeb"
                 />
 
                 {/* Spiral Lines Component */}
